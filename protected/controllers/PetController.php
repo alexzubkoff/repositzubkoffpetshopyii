@@ -1,8 +1,9 @@
 <?php
 
 class PetController extends Controller
-{
-	/**
+{   
+        
+       /**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
@@ -32,7 +33,7 @@ class PetController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','white','whitefluffy','mostexpensive','morethanaverprice'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -55,6 +56,8 @@ class PetController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
+        
+        
 
 	/**
 	 * Creates a new model.
@@ -73,7 +76,7 @@ class PetController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
-
+       
 		$this->render('create',array(
 			'model'=>$model,
 		));
@@ -125,6 +128,67 @@ class PetController extends Controller
 		$dataProvider=new CActiveDataProvider('Pet');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+		));
+	}
+        public function actionWhite()
+	{       
+            
+                $criteria = new CDbCriteria;
+		
+		$criteria->compare('color','white',true);
+		
+                $data = new  CActiveDataProvider('Pet', array(
+			'criteria'=>$criteria,
+		));
+                
+                $this->render('index',array(
+			'dataProvider'=>$data,
+		));
+	}
+        public function actionWhiteFluffy()
+	{       
+            
+                $criteria = new CDbCriteria;
+		
+                $criteria->condition = "color = 'white' AND fluffiness = 1";
+		//$criteria->compare($column, $criteria, $partialMatch, $operator, $escape);
+		
+                $data = new  CActiveDataProvider('Pet', array(
+			'criteria'=>$criteria,
+		));
+                
+                $this->render('index',array(
+			'dataProvider'=>$data,
+		));
+	}
+        public function actionMostExpensive()
+	{       
+            
+                $criteria = new CDbCriteria;
+		
+                $criteria->condition = "price = (SELECT MAX(price) FROM tbl_pet)";
+		
+                $data = new  CActiveDataProvider('Pet', array(
+			'criteria'=>$criteria,
+		));
+                
+                $this->render('index',array(
+			'dataProvider'=>$data,
+		));
+	}
+        public function actionMoreThanAverPrice()
+	{       
+            
+                $criteria = new CDbCriteria;
+		
+                $criteria->condition = "price >(SELECT AVG(price) FROM tbl_pet)";
+		
+                $data = new  CActiveDataProvider('Pet', array(
+			'criteria'=>$criteria,
+		));
+                
+                $this->render('index',array(
+			'dataProvider'=>$data,
 		));
 	}
 

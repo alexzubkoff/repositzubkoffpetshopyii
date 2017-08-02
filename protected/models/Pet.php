@@ -104,4 +104,23 @@ class Pet extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        protected function instantiate($attributes){
+        switch($attributes['type']){
+            case 'Dog':
+                $class='DogPet';
+            break;
+            case 'Cat':
+                $class='CatPet';
+            break;
+            case 'Hamster':
+                $class='HamsterPet';
+            break;
+            default:
+                $class=get_class($this);
+        }
+        $model=new $class(null);
+        return $model;
+    }
+        
 }
