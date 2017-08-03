@@ -12,7 +12,7 @@ $this->menu=array(
 	array('label'=>'Create Pet', 'url'=>array('create')),
 	array('label'=>'Update Pet', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete Pet', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Pet', 'url'=>array('admin')),
+	array('label'>'Manage Pet', 'url'=>array('admin')),
 );
 ?>
 
