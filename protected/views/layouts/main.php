@@ -15,7 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">
 
-	<title><?php echo CHtml::encode('PetShop'); ?></title>
+	<title><?php echo CHtml::encode('PetShopITCompany'); ?></title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><?php echo CHtml::encode('PetShop'); ?></div>
+		<div id="logo"><?php echo CHtml::encode('PetShop&ITCompany'); ?></div>
 	</div><!-- header -->
 
 	<div id="mainmenu">
@@ -31,6 +31,10 @@
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
                                 array('label'=>'Pets', 'url'=>array('/pet/')),
+                                array('label'=>'Candidates', 'url'=>array('/candidate/')),
+                                array('label'=>'Teams', 'url'=>array('/teams/')),
+                                array('label'=>'Specialists', 'url'=>array('/specialist/')),
+                                array('label'=>'Teams needs', 'url'=>array('/teamneed/')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),

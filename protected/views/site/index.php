@@ -4,8 +4,8 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h2>Welcome to the PetShop</h2>
+<h2>Welcome to the PetShop and ITCompany </h2>
 
-<p>You may buy any pet in our PetShop!</p>
+
 
 

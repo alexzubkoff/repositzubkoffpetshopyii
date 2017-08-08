@@ -6,6 +6,6 @@ $this->breadcrumbs=array(
 	'About',
 );
 ?>
-<h1>About PetShop</h1>
+<h1>About PetShop and ITCompany</h1>
 
 

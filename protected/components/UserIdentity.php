@@ -7,6 +7,7 @@
  */
 class UserIdentity extends CUserIdentity
 {
+       
 	/**
 	 * Authenticates a user.
 	 * The example implementation makes sure if the username and password
@@ -16,12 +17,13 @@ class UserIdentity extends CUserIdentity
 	 * @return boolean whether authentication succeeds.
 	 */
 	public function authenticate()
-	{
+	{    
 		$users=array(
-	                //username =>password ,  
+	               //username => password,  
 			'demo'=>'demo',
 		        'admin'=>'admin',
 		);
+               
 		if(!isset($users[$this->username]))
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		elseif($users[$this->username]!==$this->password)
@@ -29,5 +31,7 @@ class UserIdentity extends CUserIdentity
 		else
 			$this->errorCode=self::ERROR_NONE;
 		return !$this->errorCode;
-	}
+            
+        }
+ 
 }
